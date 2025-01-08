@@ -1,11 +1,14 @@
 const TelegramBot = require('node-telegram-bot-api');
 const mongoose = require('mongoose');
+const express = require('express');
 require('dotenv').config();
 // Tokeningizni kiriting
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
-const port = process.env.PORT || 3000;  // Agar environment variableda PORT bo'lmasa, 3000 portni ishlatadi
+const app = express();
+const port = process.env.PORT || 3000; // Portni sozlash
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
