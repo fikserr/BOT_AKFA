@@ -5,6 +5,10 @@ require('dotenv').config();
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
+const port = process.env.PORT || 3000;  // Agar environment variableda PORT bo'lmasa, 3000 portni ishlatadi
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 // MongoDB ulanish
 const mongoUri = process.env.MONGODB_URL;
 const options = {
